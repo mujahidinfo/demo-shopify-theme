@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand fw-bold fs-2" href="/">{{ shop.name }}</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        {% for link in section.settings.menu.links %}
+        {% if link.links != blank %}
+        <li class="nav-item dropdown">
+          <a class="nav-link d-flex align-items-center  dropdown-toggle" href="#" id="navbarDropdown" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            {{ link.title }}
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+              {% for childlink in link.links %}
+              <a class="dropdown-item" href="{{ childlink.url }}">{{ childlink.title }}</a>
+              {% endfor %}
+            <li>
+          </ul>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="{{ link.url }}">{{ link.title }}</a>
+        </li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+      <ul class="navbar-nav d-flex align-items-center ms-auto">
+        <li class="nav-item">
+          <a class="nav-link d-flex align-items-center" aria-current="page" href="/cart"> {% include 'cart-icon' %} </a>
+        </li>
+        {% if shop.customer_accounts_enabled %}
+        <li class="nav-item d-flex align-items-center gap-3">
+          {% if customer %}
+          <a class="nav-link" aria-current="page" href="/account"> account </a>
+          {{ 'Log out' | customer_logout_link | replace: '<a', '<a class="nav-link"' }} {% else %} {{ 'Log in' |
+            customer_login_link | replace: '<a' , '<a class="nav-link"' }} {{ 'Register' | customer_register_link |
+            replace: '<a' , '<a class="nav-link"' }} {% endif %} </li>
+            {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+{% schema %}
+{
+"name": "Header",
+"settings": [
+{
+"type": "link_list",
+"id": "menu",
+"default": "main-menu",
+"label": "Heading Navigation Menu"
+}
+]
+}
+{% endschema %}

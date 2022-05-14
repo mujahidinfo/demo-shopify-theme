@@ -1,0 +1,44 @@
+<div class="d-flex justify-content-center align-items-center" style="height: 90vh">
+    <div class="text-center">
+        <img src="{{ '404-Error.svg' | asset_url }}" alt="" />
+        <h5 class="card-title">{{ section.settings.title }}</h5>
+        <p class="card-text">{{ section.settings.subtext }}</p>
+        {% if section.settings.button_url==blank %}
+        {% assign shop_url = shop.secure_url %}
+        {% else %}
+        {% assign shop_url = section.settings.button_url %}
+        {% endif %}
+        <a href="{{ shop_url }}" class="btn btn-primary">{{ section.settings.button_label }}</a>
+    </div>
+</div>
+
+{% schema %}
+{
+"name": "Template 404",
+"settings": [
+{
+"type": "text",
+"id": "title",
+"default": "Not Found",
+"label": "404 Heading Title"
+},
+{
+"type": "text",
+"id": "subtext",
+"default": "The page you were looking for does not exist",
+"label": "404 Subtext Title"
+},
+{
+"type": "text",
+"id": "button_label",
+"default": "Back to homepage",
+"label": "Button Label"
+},
+{
+"type": "url",
+"id": "button_url",
+"label": "Button URL"
+}
+]
+}
+{% endschema %}
