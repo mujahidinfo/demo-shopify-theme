@@ -1,6 +1,26 @@
 {
-  "current": "Default",
+  "current": {
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "menu": "main-menu"
+        }
+      },
+      "carosel": {
+        "type": "carosel",
+        "settings": {
+          "upload_image": "shopify:\/\/shop_images\/rack-of-womens-clothing.jpg",
+          "upload_image_2": "shopify:\/\/shop_images\/sunlight-creeps-through-a-bright-living-room.jpg"
+        }
+      }
+    },
+    "content_for_index": [
+
+    ]
+  },
   "presets": {
-    "Default": { }
+    "Default": {
+    }
   }
 }
