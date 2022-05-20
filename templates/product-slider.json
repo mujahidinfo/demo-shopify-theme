@@ -1,0 +1,13 @@
+{
+    "name": "Product Slider",
+    "sections": {
+        "product-slider":{
+            "type": "product-slider",
+            "settings": {
+                
+            }
+            
+        }
+    },
+    "order":["product-slider"]
+}

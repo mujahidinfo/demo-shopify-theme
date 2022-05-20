@@ -1,0 +1,64 @@
+<div class="container p-3">
+    <h1 class="text-center">{{ section.settings.collection-heading }}</h1>
+    <div
+        class="row row-cols-{{ section.settings.row-mobile }} row-cols-sm-{{ section.settings.row-tablet }} row-cols-md-{{ section.settings.row-desktop }} g-2 my-2">
+        {% for product in section.settings.featured_collection.products limit:
+        section.settings.number_of_product_to_show %}
+        {% include 'product-card' | product %}
+        {% endfor %}
+    </div>
+</div>
+
+{% schema %}
+{
+"name": "Feature Collection",
+"settings": [
+{
+"type": "text",
+"id":"collection-heading",
+"label": "Collection Heading",
+"default": "New Arrival"
+},
+{
+"type": "collection",
+"id": "featured_collection",
+"label": "Collection"
+},
+{
+"type": "range",
+"label" : "Number of product to show",
+"id": "number_of_product_to_show",
+"min": 4,
+"max": 10,
+"default": 10
+},
+{
+"type": "range",
+"id": "row-desktop",
+"default": 4,
+"label": "Row in Desktop",
+"min": 1,
+"max": 5,
+"step": 1
+},
+{
+"type": "range",
+"id": "row-tablet",
+"default": 3,
+"label": "Row in Tablet",
+"min": 1,
+"max": 3,
+"step": 1
+},
+{
+"type": "range",
+"id": "row-mobile",
+"default": 2,
+"label": "Row in Mobile",
+"min": 1,
+"max": 3,
+"step": 1
+}
+]
+}
+{% endschema %}
