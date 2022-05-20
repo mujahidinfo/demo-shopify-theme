@@ -1,18 +1,35 @@
 {
-    "name": "Home Page",
-    "sections": {
-        "carosel": {
-            "type": "carosel"
-        },
-        "product-slider": {
-            "type": "product-slider"
-        },
-        "feature-product": {
-            "type": "feature-product",
-            "settings": {
-                "featured_collection": "all"
-            }
-        }
+  "sections": {
+    "carosel": {
+      "type": "carosel",
+      "settings": {
+        "upload_image": "shopify:\/\/shop_images\/sunlight-creeps-through-a-bright-living-room.jpg",
+        "upload_image_2": "shopify:\/\/shop_images\/rack-of-womens-clothing.jpg"
+      }
     },
-    "order":["carosel", "product-slider","feature-product" ]
+    "product-slider": {
+      "type": "product-slider",
+      "settings": {
+        "title": "Featured Collection",
+        "collection": "frontpage",
+        "product_count": 8
+      }
+    },
+    "feature-product": {
+      "type": "feature-product",
+      "settings": {
+        "collection-heading": "New Arrival",
+        "featured_collection": "all",
+        "number_of_product_to_show": 10,
+        "row-desktop": 4,
+        "row-tablet": 3,
+        "row-mobile": 2
+      }
+    }
+  },
+  "order": [
+    "carosel",
+    "product-slider",
+    "feature-product"
+  ]
 }
